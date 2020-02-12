@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+
+  web:
+    image: angular9
+    container_name: development.frontend.app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '4201:4200'
