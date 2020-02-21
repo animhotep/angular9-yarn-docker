@@ -1,0 +1,14 @@
+<div>
+  <button (click)="getData()">get data</button>
+
+  <div *ngIf="loading">
+    Loading...
+  </div>
+  <div *ngIf="posts">
+    <div *ngFor="let post of posts">
+      <p>
+        <i> {{post.author.firstName}}</i> ("{{post.title}}"): {{post.votes}}
+      </p>
+    </div>
+  </div>
+</div>
