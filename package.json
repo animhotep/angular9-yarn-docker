@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0",
-    "prestart": "echo 'Docker serves on http://localhost:4201/'",
+    "start": "ng serve --ssl --host 0.0.0.0",
+    "prestart": "echo 'Docker serves on https://localhost:4201/'",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

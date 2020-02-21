@@ -4,4 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `docker-compose up -d --build` for a dev server. Navigate to `http://localhost:4201/`
+Run `docker-compose up -d --build` for a dev server. Navigate to `https://localhost:4201/`
+
+How to use single quotes in imports:
+
+https://www.jetbrains.com/help/webstorm/creating-and-optimizing-imports.html
+
+http://i.imgur.com/yG5nrWC.png
