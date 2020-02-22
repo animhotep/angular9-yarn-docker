@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Apollo} from 'apollo-angular';
-import gql from 'graphql-tag';
+import {PostsService} from '../shared/posts.service';
+import {Observable} from 'rxjs';
 import {Post} from '../models/post';
-
 
 
 @Component({
@@ -10,38 +9,22 @@ import {Post} from '../models/post';
   templateUrl: './test-graph.component.html',
   styleUrls: ['./test-graph.component.scss']
 })
+
 export class TestGraphComponent implements OnInit {
-  public posts: Post[];
-  loading = true;
+  posts: Observable<Post[]>;
 
-  constructor(private apollo: Apollo) {
+  constructor(private postsService: PostsService) {}
+
+  ngOnInit() {
+    this.posts = this.postsService.getPosts();
   }
 
-  ngOnInit(): void {
-    this.apollo.query<any>({
-      query: gql`
-        query allPosts {
-          posts {
-            id
-            title
-            votes
-            author {
-              id
-              firstName
-              lastName
-            }
-          }
-        }
-      `,
-    })
-      .subscribe(result => {
-        console.log(result);
-        this.posts = result.data && result.data.posts;
-        this.loading = result.loading;
-      });
+  getData() {
+    delete this.posts;
+    setTimeout(() => {
+      this.ngOnInit();
+    }, 2000);
   }
 
-  getData(): void {
-    this.posts = [];
-  }
+
 }

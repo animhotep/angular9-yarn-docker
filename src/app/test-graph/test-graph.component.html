@@ -1,14 +1,11 @@
 <div>
   <button (click)="getData()">get data</button>
 
-  <div *ngIf="loading">
-    Loading...
+  <div *ngFor="let post of posts | async">
+    <p>
+      <b> {{ post.author.firstName }}</b> ("{{ post.title }}"): {{ post.votes }}
+    </p>
   </div>
-  <div *ngIf="posts">
-    <div *ngFor="let post of posts">
-      <p>
-        <i> {{post.author.firstName}}</i> ("{{post.title}}"): {{post.votes}}
-      </p>
-    </div>
-  </div>
+
+ <h3 *ngIf="!(posts | async)">Loading...</h3>
 </div>
