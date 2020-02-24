@@ -8,23 +8,23 @@ import {map} from 'rxjs/operators';
 })
 
 export class PostsService {
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo) {
+  }
+
   getPosts() {
     return this.apollo.query({
-      query: gql`
-        query allPosts {
-          posts {
+      query: gql`{
+        posts {
+          id
+          title
+          votes
+          author {
             id
-            title
-            votes
-            author {
-              id
-              firstName
-              lastName
-            }
+            firstName
+            lastName
           }
         }
-      `,
+      }`,
     }).pipe(map((r: any) => r.data.posts));
   }
 
