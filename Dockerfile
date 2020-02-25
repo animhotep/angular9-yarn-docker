@@ -9,7 +9,7 @@ COPY package.json /app/package.json
 RUN yarn
 
 # add app
-COPY . /app
+CMD rsync -r --exclude="node_modules" --exclude=".git" . /app
 
 # start app
 CMD yarn start

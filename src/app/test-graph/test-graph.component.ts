@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {PostsService} from '../shared/posts.service';
+import {PostsService} from '../shared/services/posts.service';
 import {Observable} from 'rxjs';
-import {Post} from '../models/post';
+import {Post} from '../shared/models/post';
 
 
 @Component({
@@ -18,6 +18,7 @@ export class TestGraphComponent implements OnInit {
   ngOnInit() {
     this.posts = this.postsService.getPosts();
   }
+
 
   getData() {
     delete this.posts;
