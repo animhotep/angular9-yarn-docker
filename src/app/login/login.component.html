@@ -18,3 +18,15 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
+
+  <div *ngFor="let u of users1">
+    <p>
+      <b> {{ u }}</b>
+    </p>
+  </div>
+
+  <div *ngFor="let u of users | async">
+    <p>
+      <b> {{ u.name }}</b>
+    </p>
+  </div>
